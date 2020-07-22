@@ -1,16 +1,18 @@
 {
-  "name": "al-embed-file",
+  "name": "@msnraju/al-embed-file",
   "author": "MSN Raju",
   "description": "Creates a codeunit with the Json / Xml / text file embedded.",
   "version": "0.0.1",
   "license": "MIT",
   "main": "./lib/index.js",
   "bin": {
-    "al-embed-file": "./lib/index.js"
+    "al-embed-file": "./lib/index.js",
+    "@msnraju/al-embed-file": "./lib/index.js"
   },
   "repository": {
-    "url": ""
+    "url": "https://github.com/msnraju/al-embed-file"
   },
+  "homepage": "https://github.com/msnraju/al-embed-file",
   "engines": {
     "node": ">=10"
   },
