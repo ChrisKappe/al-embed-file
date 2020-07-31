@@ -1,9 +1,6 @@
 import inquirer from 'inquirer';
 import chalk from 'chalk';
-import { clear } from 'console';
-import figlet from 'figlet';
 import program, { option } from 'commander';
-import path from 'path';
 import { Writer } from './writer';
 
 export interface IOption {
@@ -53,12 +50,15 @@ export class CLI {
 
   private static async promptForMissingOptions(options: IOption) {
     const questions = [];
+    
+    inquirer.registerPrompt('filePath', require('inquirer-file-path'));
 
     if (!options.fileName) {
       questions.push({
-        type: 'input',
+        type: 'file',
         name: 'fileName',
-        message: 'File Name: ',
+        message: 'Path of the file to embed: ',
+        basePath: './',
         validate: (input: string) => {
           return input ? true : false;
         },
@@ -67,7 +67,7 @@ export class CLI {
 
     if (!options.codeunitID) {
       questions.push({
-        type: 'input',
+        type: 'number',
         name: 'codeunitID',
         message: 'Codeunit ID: ',
         validate: (input: number) => {
@@ -89,9 +89,9 @@ export class CLI {
 
     if (!options.outputFileName) {
       questions.push({
-        type: 'input',
+        type: 'file',
         name: 'outputFileName',
-        message: 'Output File Name: ',
+        message: 'Output Codeunit File Name: ',
         validate: (input: string) => {
           return input ? true : false;
         },

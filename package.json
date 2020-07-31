@@ -2,7 +2,7 @@
   "name": "@msnraju/al-embed-file",
   "author": "MSN Raju",
   "description": "Creates a codeunit with the Json / Xml / text file embedded.",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "license": "MIT",
   "main": "./lib/index.js",
   "bin": {
@@ -31,10 +31,7 @@
   },
   "devDependencies": {
     "@types/chalk": "^2.2.0",
-    "@types/clear": "^0.1.0",
-    "@types/figlet": "^1.2.0",
     "@types/inquirer": "^7.3.0",
-    "@types/lodash": "^4.14.157",
     "@types/node": "^14.0.22",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",
@@ -44,12 +41,11 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^6.0.0",
-    "figlet": "^1.5.0",
     "inquirer": "^7.3.2",
-    "lodash": "^4.17.19",
     "path": "^0.12.7"
   },
   "keywords": [
+    "Microsoft Dynamics 365",
     "Business Central",
     "Dynamics NAV",
     "NAV",

@@ -44,7 +44,7 @@ export class Writer {
 {  
 ${getMethod}
 
-    local procedure GetText(): Text
+    procedure GetText(): Text
     var
         builder: TextBuilder;
     begin
@@ -60,11 +60,11 @@ ${this.toALCode(content).join('\r\n')}
   }
 
   private static toALCode(content: string): Array<string> {
+    content = content.replace(/'/g, "''");
     const lines = Helper.splitByLength(content, 100);
 
     const alCode: Array<string> = [];
-    lines.forEach((line) => {
-      line = line.replace("'", "''");
+    lines.forEach((line) => {      
       alCode.push(`        builder.Append('${line}');`);
     });
 
