@@ -51,8 +51,6 @@ export class CLI {
   private static async promptForMissingOptions(options: IOption) {
     const questions = [];
     
-    inquirer.registerPrompt('filePath', require('inquirer-file-path'));
-
     if (!options.fileName) {
       questions.push({
         type: 'file',
