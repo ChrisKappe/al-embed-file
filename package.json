@@ -2,7 +2,7 @@
   "name": "@msnraju/al-embed-file",
   "author": "MSN Raju",
   "description": "Creates a codeunit with the Json / Xml / text file embedded.",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "main": "./lib/index.js",
   "bin": {

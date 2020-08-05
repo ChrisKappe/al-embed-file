@@ -7,7 +7,7 @@ export class Writer {
   static generateCodeunit(options: IOption) {
     const filePath = path.resolve(options.fileName);
     const buffer = fs.readFileSync(filePath);
-    const content = buffer.toString();
+    const content = buffer.toString('utf-8');
 
     this.toALCode(content);
 
@@ -63,9 +63,19 @@ ${this.toALCode(content).join('\r\n')}
     content = content.replace(/'/g, "''");
     const lines = Helper.splitByLength(content, 100);
 
+    let delFirstChar = false;
     const alCode: Array<string> = [];
-    lines.forEach((line) => {      
-      alCode.push(`        builder.Append('${line}');`);
+    lines.forEach((line) => {
+      if (line.endsWith("'") && !line.endsWith("''")) {
+        delFirstChar = true;
+        alCode.push(`        builder.Append('${line}'');`);
+      } else {
+        if (delFirstChar) {
+          line = line.substr(1);
+          delFirstChar = false;
+        }
+        alCode.push(`        builder.Append('${line}');`);
+      }
     });
 
     return alCode;
